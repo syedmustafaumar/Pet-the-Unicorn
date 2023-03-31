@@ -11,3 +11,8 @@ between players. The lights represented on the board of one player are the inver
 of the other player. A player gains a point by pushing the button when the
 light is on. However, if they press the button when the light is turned off, they lose a point. 
 The winner is the first player to reach 10 points. 
+
+# Dev Teams
+- 7 digits: @arjav2001, @raihanahnabilah
+- FSM: @lreienn, @syedmustafaumar, @SamKouteili
+- Communications: @koonwen, @sewenthy, @totallynotalvin
