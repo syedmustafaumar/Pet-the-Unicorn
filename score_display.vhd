@@ -36,7 +36,7 @@ entity score_display is
         isRunning: in std_logic;
         clk: in std_logic;
         LED_input: in std_logic_vector(3 downto 0);
-        LED_output: out std_logic_vector(7 downto 0)
+        LED_output: out std_logic_vector(6 downto 0)
     );
 end score_display;
 
@@ -44,15 +44,16 @@ architecture Behavioral of score_display is
 
 begin 
     
-LED_output <=   "0110000" when LED_input = "0001" else -- 1
-                "1101101" when LED_input = "0010" else -- 2
-                "1111001" when LED_input = "0011" else -- 3
-                "0110011" when LED_input = "0100" else -- 4
-                "1011011" when LED_input = "0101" else -- 5
-                "1011111" when LED_input = "0000" else -- 6
-                "1110000" when LED_input = "0000" else -- 7
-                "1111111" when LED_input = "0000" else -- 8
-                "1111011" when LED_input = "0000" else -- 9
-                "1111110"; 
+LED_output <=   "0000001" when LED_input = "0000" else -- 0
+                "1001111" when LED_input = "0001" else -- 1
+                "0010010" when LED_input = "0010" else -- 2
+                "0000110" when LED_input = "0011" else -- 3
+                "1001100" when LED_input = "0100" else -- 4
+                "0100100" when LED_input = "0101" else -- 5
+                "0100000" when LED_input = "0000" else -- 6
+                "0001111" when LED_input = "0000" else -- 7
+                "0000000" when LED_input = "0000" else -- 8
+                "0000100" when LED_input = "0000" else -- 9
+                "1111111"; -- blank when it is not a digit.  
                 
 end Behavioral;
