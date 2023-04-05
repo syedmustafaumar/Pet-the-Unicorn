@@ -20,7 +20,8 @@ end full_game_fsm;
 architecture Behavioral of full_game_fsm is
 
 -- TODO: find a way to initialise inverse unicorns for p1 and p2
-signal unicorns_loc : std_logic_vector(3 downto 0) := "0101" ;
+signal current_unicorns : std_logic_vector(3 downto 0) := "0101";
+signal next_unicorns : std_logic_vector(3 downto 0);
 signal score_loc : integer := 0;
 signal score_rem : integer := 0;
 
@@ -34,40 +35,56 @@ begin
         score_loc_out <= 0;
         score_rem_out <= 0;
         unicorns_loc_out <= "0101";
+        score_loc <= 0;
+        score_rem <= 0;
+        current_unicorns <= "0101";
     elsif (rising_edge(clk)) then
         score_loc_out <= score_loc;
         score_rem_out <= score_rem;
-        unicorns_loc_out <= unicorns_loc;
+        unicorns_loc_out <= next_unicorns;
+        current_unicorns <= next_unicorns;
     end if;
 end process sync_proc;
 
-
 -- update unicorns
-update_unicorn_frm_loc: process (buttons_loc)
+update_unicorns: process (buttons_loc, buttons_rem, current_unicorns)
 begin
---truth table for unicorn output logic based on local buttons
--- u bl u'
--- 0 0 0
--- 0 1 0
--- 1 0 1
--- 1 1 0
--- i.e (u and not bl)
-unicorns_loc <= unicorns_loc and not buttons_loc;
-end process update_unicorn_frm_loc;
-
-update_unicorn_frm_rem: process (buttons_rem)
-begin
---truth table for unicorn output logic based on remote buttons
--- u br u'
--- 0 0 0
--- 0 1 1
--- 1 0 1
--- 1 1 1
--- i.e (u or br)
-unicorns_loc <= unicorns_loc or buttons_rem;
-end process update_unicorn_frm_rem;
+    --truth table for unicorn output logic based on local buttons
+    -- u bl u'
+    -- 0 0 0
+    -- 0 1 0
+    -- 1 0 1
+    -- 1 1 0
+    -- i.e (u and not bl)
+    
+    --begin
+    --truth table for unicorn output logic based on remote buttons
+    -- u br u'
+    -- 0 0 0
+    -- 0 1 1
+    -- 1 0 1
+    -- 1 1 1
+    -- i.e (u or br)
+    
+--    TODO: check if conflict resolution is ok
+    -- u bl br u'
+    -- 0 0  0  0
+    -- 0 1  0  0
+    -- 1 0  0  1
+    -- 1 1  0  0
+    -- 0 0  1  1
+    -- 0 1  1  1
+    -- 1 0  1  1
+    -- 1 1  1  0
+    -- i.e ((u and not bl) and not br) or ((u nand bl) and br)
+    next_unicorns <= ((current_unicorns and not buttons_loc) and not buttons_rem) 
+    or ((current_unicorns nand buttons_loc) and buttons_rem);
+    
+--    score <= 
+end process update_unicorns;
 
 -- TODO: update scores
+
 
     
 end Behavioral;
