@@ -33,12 +33,6 @@ use IEEE.NUMERIC_STD.ALL;
 --use UNISIM.VComponents.all;
 
 entity PetTheUnicorn is
-Generic (
-    BUTTON_DEBOUNCE_TIME : INTEGER := 10;
-    TIMER_INIT_VALUE : INTEGER := 100;
-    TIMER_DECREMENT : INTEGER := 1    
-);
-
 Port (
     clk             : in std_logic;
     reset           : in std_logic;
@@ -55,6 +49,10 @@ end PetTheUnicorn;
 
 architecture Behavioral of PetTheUnicorn is
 
+    constant BUTTON_DEBOUNCE_TIME   : INTEGER := 100;
+    constant TIMER_INIT_VALUE       : INTEGER := 200;
+    constant TIMER_DECREMENT        : INTEGER := 1;
+
     type game_state_type is (IDLE, PLAYING);
     type int_array is array (0 to 3) of INTEGER;
     signal game_state       : game_state_type := IDLE;
@@ -66,12 +64,16 @@ architecture Behavioral of PetTheUnicorn is
     signal p2_score_int     : INTEGER := 0;
     signal p1_buttons_deb   : std_logic_vector(3 downto 0) := (others => '0');
     signal p2_buttons_deb   : std_logic_vector(3 downto 0) := (others => '0');
+    signal p1_deb_counter   : int_array := (others => 0);
+    signal p2_deb_counter   : int_array := (others => 0);
     signal pref_player      : INTEGER := 0;    
+    
 begin
 
-game_state_proc : process(clk, p1_start, p2_start)
-begin
 
+-- Game logic
+game_state_proc: process (clk, p1_start, p2_start)
+begin
 if rising_edge(clk) then
     case game_state is
         when IDLE =>
@@ -129,7 +131,65 @@ if rising_edge(clk) then
                 end loop;
             end if;
     end case;
-end process;
+end if;
+end process game_state_proc;
 
+
+-- Detecting button press
+button_deb_proc: process (clk)
+begin
+if rising_edge(clk) then
+    if game_state = PLAYING then
+        for i in 0 to 3 loop
+            -- Player 1 Button Debounce
+            if p1_buttons(i) = '1' and p1_buttons_deb(i) = '0' and p1_deb_counter(i) < BUTTON_DEBOUNCE_TIME then
+                p1_deb_counter(i) <= p1_deb_counter(i) + 1;
+            elsif p1_buttons(i) = '0' and p1_buttons_deb(i) = '1' and p1_deb_counter(i) < BUTTON_DEBOUNCE_TIME then
+                p1_deb_counter(i) <= p1_deb_counter(i) + 1;
+            elsif p1_deb_counter(i) = BUTTON_DEBOUNCE_TIME then
+                p1_deb_counter(i) <= 0;
+                p1_buttons_deb(i) <= p1_buttons_deb(i);
+            end if;
+            
+            -- Player 2 Button Debounce
+            if p2_buttons(i) = '1' and p2_buttons_deb(i) = '0' and p2_deb_counter(i) < BUTTON_DEBOUNCE_TIME then
+                p2_deb_counter(i) <= p2_deb_counter(i) + 1;
+            elsif p2_buttons(i) = '0' and p2_buttons_deb(i) = '1' and p2_deb_counter(i) < BUTTON_DEBOUNCE_TIME then
+                p2_deb_counter(i) <= p2_deb_counter(i) + 1;
+            elsif p2_deb_counter(i) = BUTTON_DEBOUNCE_TIME then
+                p2_deb_counter(i) <= 0;
+                p2_buttons_deb(i) <= p2_buttons_deb(i);
+            end if;    
+        end loop;
+    end if;
+end if;
+end process button_deb_proc;
+
+
+-- Timer 
+timer_proc: process(clk)
+begin
+if rising_edge(clk) then
+    if game_state = PLAYING then
+        for i in 0 to 3 loop
+            -- Player 1 timer
+            if p1_lights_int(i) = '1' and p1_timer(i) > 0 then
+                p1_timer(i) <= p1_timer(i) - TIMER_DECREMENT;
+            end if;
+            
+            -- Player 2 timer
+            if p2_lights_int(i) = '1' and p2_timer(i) > 0 then
+                p2_timer(i) <= p2_timer(i) - TIMER_DECREMENT;
+            end if;
+        end loop;
+    end if;
+end if;
+end process timer_proc;
+
+p1_score <= p1_score_int;
+p2_score <= p2_score_int;
+
+p1_unicorns <= p1_lights_int;
+p2_unicorns <= p2_lights_int;
 
 end Behavioral;
