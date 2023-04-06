@@ -148,7 +148,7 @@ if rising_edge(clk) then
                 p1_deb_counter(i) <= p1_deb_counter(i) + 1;
             elsif p1_deb_counter(i) = BUTTON_DEBOUNCE_TIME then
                 p1_deb_counter(i) <= 0;
-                p1_buttons_deb(i) <= p1_buttons_deb(i);
+                p1_buttons_deb(i) <= p1_buttons(i);
             end if;
             
             -- Player 2 Button Debounce
@@ -158,7 +158,7 @@ if rising_edge(clk) then
                 p2_deb_counter(i) <= p2_deb_counter(i) + 1;
             elsif p2_deb_counter(i) = BUTTON_DEBOUNCE_TIME then
                 p2_deb_counter(i) <= 0;
-                p2_buttons_deb(i) <= p2_buttons_deb(i);
+                p2_buttons_deb(i) <= p2_buttons(i);
             end if;    
         end loop;
     end if;
