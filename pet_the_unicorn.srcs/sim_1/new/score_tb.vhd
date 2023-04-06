@@ -1,10 +1,10 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity unicorn_tb is
-end unicorn_tb;
+entity score_tb is
+end score_tb;
 
-architecture Behavioral of unicorn_tb is
+architecture Behavioral of score_tb is
     signal clk: std_logic := '0';
     signal start_loc_in : std_logic := '0';
     signal start_rem_in : std_logic := '0';
@@ -43,10 +43,6 @@ begin
             wait for period;
             assert (unicorns_loc = "0000")
             report "test failed for buttons_loc input 0101" severity error;
---            assert (score_loc = 1)
---            report "score test failed for buttons_loc input 0101" severity error;
---            assert (score_rem = 0)
---            report "score test failed for buttons_loc input 0101" severity error;
             
             buttons_loc_in <= "0000";
             buttons_rem_in <= "0101";
@@ -73,5 +69,10 @@ begin
             report "test failed for buttons_rem input 1010" severity error;
             wait;
         end process;
+
+end Behavioral;
+
+begin
+
 
 end Behavioral;
