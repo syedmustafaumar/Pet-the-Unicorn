@@ -90,29 +90,35 @@
   <FileSets Version="1" Minor="31">
     <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
       <Filter Type="Srcs"/>
-      <File Path="$PSRCDIR/sources_1/bd/uart_com/uart_com.bd">
+      <File Path="$PSRCDIR/sources_1/imports/ome/sewen/.var/app/org.telegram.desktop/data/TelegramDesktop/tdata/temp_data/baud_gen.vhd">
         <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../home/sewen/.var/app/org.telegram.desktop/data/TelegramDesktop/tdata/temp_data/baud_gen.vhd"/>
+          <Attr Name="ImportTime" Val="1681397528"/>
           <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="uart_com.bd" FileRelPathName="ip/uart_com_rst_ps7_0_50M_0/uart_com_rst_ps7_0_50M_0.xci">
-          <Proxy FileSetName="uart_com_rst_ps7_0_50M_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="uart_com.bd" FileRelPathName="ip/uart_com_processing_system7_0_0/uart_com_processing_system7_0_0.xci">
-          <Proxy FileSetName="uart_com_processing_system7_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="uart_com.bd" FileRelPathName="ip/uart_com_axi_uartlite_0_0/uart_com_axi_uartlite_0_0.xci">
-          <Proxy FileSetName="uart_com_axi_uartlite_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="uart_com.bd" FileRelPathName="ip/uart_com_auto_pc_0/uart_com_auto_pc_0.xci">
-          <Proxy FileSetName="uart_com_auto_pc_0"/>
-        </CompFileExtendedInfo>
       </File>
-      <File Path="$PGENDIR/sources_1/bd/uart_com/hdl/uart_com_wrapper.v">
+      <File Path="$PSRCDIR/sources_1/imports/ome/sewen/.var/app/org.telegram.desktop/data/TelegramDesktop/tdata/temp_data/uart_rx.vhd">
         <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../home/sewen/.var/app/org.telegram.desktop/data/TelegramDesktop/tdata/temp_data/uart_rx.vhd"/>
+          <Attr Name="ImportTime" Val="1681397528"/>
           <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ome/sewen/.var/app/org.telegram.desktop/data/TelegramDesktop/tdata/temp_data/uart_tx.vhd">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../home/sewen/.var/app/org.telegram.desktop/data/TelegramDesktop/tdata/temp_data/uart_tx.vhd"/>
+          <Attr Name="ImportTime" Val="1681398292"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ools/projects/demo_pmod/project_1/project_1.srcs/sources_1/new/switch_over_uart.vhd">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../demo_pmod/project_1/project_1.srcs/sources_1/new/switch_over_uart.vhd"/>
+          <Attr Name="ImportTime" Val="1681402378"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
@@ -123,14 +129,60 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PSRCDIR/sources_1/bd/uart_com/uart_com.bd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+        <CompFileExtendedInfo CompFileName="uart_com.bd" FileRelPathName="ip/uart_com_axi_uartlite_0_0/uart_com_axi_uartlite_0_0.xci">
+          <Proxy FileSetName="uart_com_axi_uartlite_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="uart_com.bd" FileRelPathName="ip/uart_com_processing_system7_0_0/uart_com_processing_system7_0_0.xci">
+          <Proxy FileSetName="uart_com_processing_system7_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="uart_com.bd" FileRelPathName="ip/uart_com_auto_pc_0/uart_com_auto_pc_0.xci">
+          <Proxy FileSetName="uart_com_auto_pc_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="uart_com.bd" FileRelPathName="ip/uart_com_rst_ps7_0_50M_0/uart_com_rst_ps7_0_50M_0.xci">
+          <Proxy FileSetName="uart_com_rst_ps7_0_50M_0"/>
+        </CompFileExtendedInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ome/sewen/.var/app/org.telegram.desktop/data/TelegramDesktop/tdata/temp_data/uart_tx_tb.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../home/sewen/.var/app/org.telegram.desktop/data/TelegramDesktop/tdata/temp_data/uart_tx_tb.vhd"/>
+          <Attr Name="ImportTime" Val="1681397528"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/ome/sewen/.var/app/org.telegram.desktop/data/TelegramDesktop/tdata/temp_data/uart_rx_tb.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../home/sewen/.var/app/org.telegram.desktop/data/TelegramDesktop/tdata/temp_data/uart_rx_tb.vhd"/>
+          <Attr Name="ImportTime" Val="1681397528"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="uart_com_wrapper"/>
+        <Option Name="TopModule" Val="switch_over_uart"/>
         <Option Name="TopAutoSet" Val="TRUE"/>
       </Config>
     </FileSet>
     <FileSet Name="constrs_1" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1" RelGenDir="$PGENDIR/constrs_1">
       <Filter Type="Constrs"/>
+      <File Path="$PSRCDIR/constrs_1/imports/new/switch_to_pmod.xdc">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../demo_pmod/project_1/project_1.srcs/constrs_1/new/switch_to_pmod.xdc"/>
+          <Attr Name="ImportTime" Val="1681402518"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+        </FileInfo>
+      </File>
       <Config>
         <Option Name="ConstrsType" Val="XDC"/>
       </Config>
@@ -139,7 +191,7 @@
       <Filter Type="Srcs"/>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
-        <Option Name="TopModule" Val="uart_com_wrapper"/>
+        <Option Name="TopModule" Val="switch_over_uart"/>
         <Option Name="TopLib" Val="xil_defaultlib"/>
         <Option Name="TopAutoSet" Val="TRUE"/>
         <Option Name="TransportPathDelay" Val="0"/>
@@ -225,9 +277,7 @@
     </Run>
     <Run Id="uart_com_rst_ps7_0_50M_0_synth_1" Type="Ft3:Synth" SrcSet="uart_com_rst_ps7_0_50M_0" Part="xc7z020clg400-1" ConstrsSet="uart_com_rst_ps7_0_50M_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/uart_com_rst_ps7_0_50M_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/uart_com_rst_ps7_0_50M_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/uart_com_rst_ps7_0_50M_0_synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -237,9 +287,7 @@
     </Run>
     <Run Id="uart_com_processing_system7_0_0_synth_1" Type="Ft3:Synth" SrcSet="uart_com_processing_system7_0_0" Part="xc7z020clg400-1" ConstrsSet="uart_com_processing_system7_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/uart_com_processing_system7_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/uart_com_processing_system7_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/uart_com_processing_system7_0_0_synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -249,9 +297,7 @@
     </Run>
     <Run Id="uart_com_axi_uartlite_0_0_synth_1" Type="Ft3:Synth" SrcSet="uart_com_axi_uartlite_0_0" Part="xc7z020clg400-1" ConstrsSet="uart_com_axi_uartlite_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/uart_com_axi_uartlite_0_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/uart_com_axi_uartlite_0_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/uart_com_axi_uartlite_0_0_synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -261,9 +307,7 @@
     </Run>
     <Run Id="uart_com_auto_pc_0_synth_1" Type="Ft3:Synth" SrcSet="uart_com_auto_pc_0" Part="xc7z020clg400-1" ConstrsSet="uart_com_auto_pc_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/uart_com_auto_pc_0_synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/uart_com_auto_pc_0_synth_1" AutoRQSDir="$PSRCDIR/utils_1/imports/uart_com_auto_pc_0_synth_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2022"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -290,9 +334,7 @@
     </Run>
     <Run Id="uart_com_rst_ps7_0_50M_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg400-1" ConstrsSet="uart_com_rst_ps7_0_50M_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="uart_com_rst_ps7_0_50M_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/uart_com_rst_ps7_0_50M_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/uart_com_rst_ps7_0_50M_0_impl_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
@@ -309,9 +351,7 @@
     </Run>
     <Run Id="uart_com_processing_system7_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg400-1" ConstrsSet="uart_com_processing_system7_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="uart_com_processing_system7_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/uart_com_processing_system7_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/uart_com_processing_system7_0_0_impl_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
@@ -328,9 +368,7 @@
     </Run>
     <Run Id="uart_com_axi_uartlite_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg400-1" ConstrsSet="uart_com_axi_uartlite_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="uart_com_axi_uartlite_0_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/uart_com_axi_uartlite_0_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/uart_com_axi_uartlite_0_0_impl_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
@@ -347,9 +385,7 @@
     </Run>
     <Run Id="uart_com_auto_pc_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg400-1" ConstrsSet="uart_com_auto_pc_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="uart_com_auto_pc_0_synth_1" IncludeInArchive="false" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/uart_com_auto_pc_0_impl_1" AutoRQSDir="$PSRCDIR/utils_1/imports/uart_com_auto_pc_0_impl_1">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2022"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
