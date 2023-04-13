@@ -31,18 +31,20 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity switch_over_uart is
+entity com is
   Port ( 
         clk: IN std_logic;
         reset: IN std_logic;
-        sw  : IN    std_logic_vector (3 downto 0);
-        led : OUT   std_logic_vector (3 downto 0);
+        start: IN std_logic;
+        r_start: OUT std_logic;
+        keypress  : IN    std_logic_vector (3 downto 0);
+        r_keypress : OUT   std_logic_vector (3 downto 0);
         jd  : IN    std_logic; --_vector (7 downto 0);
         je  : OUT   std_logic --_vector (7 downto 0)
   );
-end switch_over_uart;
+end com;
 
-architecture Behavioral of switch_over_uart is
+architecture Behavioral of com is
 component uart_rx is
   Port (
         clk: in std_logic;
@@ -89,17 +91,24 @@ begin
     process (clk, reset, rx_rdy)
     begin
         if reset = '1' then
-            led <= (others => '1');
+            r_keypress <= (others => '1');
         else
             if rx_rdy = '1' then
-                led <= internal_in(3 downto 0);
+                r_keypress <= internal_in(3 downto 0);
+                r_start <= internal_in(4);
             end if;
         end if;
     end process;
     
-    process (sw)
+    process (keypress)
     begin
-        internal_out(3 downto 0) <= sw;
+        internal_out(3 downto 0) <= keypress;
+        tx_rdy <= '1';
+    end process;
+    
+    process (start)
+    begin
+        internal_out(4) <= '1';
         tx_rdy <= '1';
     end process;
 end Behavioral;
