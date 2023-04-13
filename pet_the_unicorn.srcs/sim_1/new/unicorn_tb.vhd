@@ -40,13 +40,13 @@ begin
         begin
             buttons_loc_in <= "0101";
             buttons_rem_in <= "0000";
-            wait for period;
+            wait for period*20;
             assert (unicorns_loc = "0000")
             report "test failed for buttons_loc input 0101" severity error;
---            assert (score_loc = 1)
---            report "score test failed for buttons_loc input 0101" severity error;
---            assert (score_rem = 0)
---            report "score test failed for buttons_loc input 0101" severity error;
+            assert (score_loc = 1)
+            report "score test failed for buttons_loc input 0101" severity error;
+            assert (score_rem = 0)
+            report "score test failed for buttons_loc input 0101" severity error;
             
             buttons_loc_in <= "0000";
             buttons_rem_in <= "0101";

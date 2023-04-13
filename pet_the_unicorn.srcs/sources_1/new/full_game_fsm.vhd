@@ -19,13 +19,13 @@ end full_game_fsm;
 
 architecture Behavioral of full_game_fsm is
 
--- TODO: find a way to initialise inverse unicorns for p1 and p2
+
 signal current_unicorns : std_logic_vector(3 downto 0) := "0101";
 signal next_unicorns : std_logic_vector(3 downto 0);
 signal score_loc : integer := 0;
 signal score_rem : integer := 0;
 
--- TODO: add signals for local and remote counter? an array of integers
+
 type int_array is array(0 to 3) of integer;
 signal counter_loc : int_array := (0,0,0,0);
 signal next_counter_loc : int_array := (0,0,0,0);
@@ -40,8 +40,6 @@ begin
         score_loc_out <= 0;
         score_rem_out <= 0;
         unicorns_loc_out <= "0101";
---        score_loc <= 0;
---        score_rem <= 0;
         current_unicorns <= "0101";
     elsif (rising_edge(clk)) then
         score_loc_out <= score_loc;
@@ -73,7 +71,6 @@ begin
     -- 1 1 1
     -- i.e (u or br)
     
---    TODO: check if conflict resolution is ok
     -- u bl br u'
     -- 0 0  0  0
     -- 0 1  0  0
@@ -99,7 +96,7 @@ begin
         then score_rem <= score_rem - 1;
         end if;
         
---       update score when counter is max
+--      update score when counter is max
 --      local
         if counter_loc(i) = 10        
         then if current_unicorns(i) = '0'
