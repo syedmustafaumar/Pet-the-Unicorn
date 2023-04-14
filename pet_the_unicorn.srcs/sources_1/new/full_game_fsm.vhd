@@ -44,6 +44,7 @@ signal rem_deb_counter  : int_array := (others => 0);
 begin
 
 -- game initialization
+-- game initialization
 sync_proc: process(clk, start_loc, start_rem)
 begin                        
     if (start_loc = '0') and preference = 0 then
@@ -63,12 +64,14 @@ begin
     if (start_loc = '1') or (start_rem = '1') then
         score_loc_out <= 0;
         score_rem_out <= 0;
-        preference <= 0;
         unicorns_loc_out <= "0000";
         score_loc <= 0;
         score_rem <= 0;
         current_unicorns <= "0000";
     elsif (rising_edge(clk)) then
+        if preference = 1 or preference = 2 then
+            preference <= 0;
+        end if;
         score_loc_out <= score_loc;
         score_rem_out <= score_rem;
         unicorns_loc_out <= next_unicorns;
@@ -76,8 +79,7 @@ begin
         counter_loc <= next_counter_loc;
         counter_rem <= next_counter_rem;
     end if;
-end process sync_proc;
-      
+end process sync_proc;      
 
 -- update unicorns
 update_unicorns: process (buttons_loc, buttons_rem, 
