@@ -47,9 +47,9 @@ begin
 -- game initialization
 sync_proc: process(clk, start_loc, start_rem)
 begin                        
-    if (start_loc = '0') and preference = 0 then
+    if (start_loc = '0') and preference = 0 and start_rem = '1' then
         preference <= 1;
-    elsif (start_rem = '0') and preference = 0 then
+    elsif (start_rem = '0') and preference = 0 and start_loc = '1' then
         preference <= 2;
     end if;
       
