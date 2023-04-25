@@ -1,0 +1,264 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x36CC9494ADDD4AFB",
+      "device": "xc7z020clg400-1",
+      "gen_directory": "../../../../mergeUnicorns.gen/sources_1/bd/design_1",
+      "name": "design_1",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2020.2",
+      "validated": "true"
+    },
+    "design_tree": {
+      "score_port_0": "",
+      "com_0": "",
+      "full_game_fsm_0": ""
+    },
+    "ports": {
+      "clk": {
+        "direction": "I"
+      },
+      "rst": {
+        "direction": "I"
+      },
+      "btn": {
+        "direction": "I",
+        "left": "3",
+        "right": "0"
+      },
+      "led": {
+        "direction": "O",
+        "left": "3",
+        "right": "0"
+      },
+      "jd": {
+        "direction": "IO",
+        "left": "7",
+        "right": "0"
+      },
+      "je": {
+        "direction": "IO",
+        "left": "7",
+        "right": "0"
+      },
+      "jc0": {
+        "direction": "I"
+      },
+      "jc1": {
+        "direction": "O"
+      },
+      "start": {
+        "direction": "I"
+      }
+    },
+    "components": {
+      "score_port_0": {
+        "vlnv": "xilinx.com:module_ref:score_port:1.0",
+        "xci_name": "design_1_score_port_0_0",
+        "xci_path": "ip/design_1_score_port_0_0/design_1_score_port_0_0.xci",
+        "inst_hier_path": "score_port_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "score_port",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "sysclk": {
+            "direction": "I"
+          },
+          "sw": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "jd": {
+            "direction": "IO",
+            "left": "0",
+            "right": "7"
+          },
+          "je": {
+            "direction": "IO",
+            "left": "0",
+            "right": "7"
+          }
+        }
+      },
+      "com_0": {
+        "vlnv": "xilinx.com:module_ref:com:1.0",
+        "xci_name": "design_1_com_0_0",
+        "xci_path": "ip/design_1_com_0_0/design_1_com_0_0.xci",
+        "inst_hier_path": "com_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "com",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "reset",
+                "value_src": "constant"
+              }
+            }
+          },
+          "reset": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "start": {
+            "direction": "I"
+          },
+          "r_start": {
+            "direction": "O"
+          },
+          "keypress": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "r_keypress": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "jd": {
+            "direction": "I"
+          },
+          "je": {
+            "direction": "O"
+          }
+        }
+      },
+      "full_game_fsm_0": {
+        "vlnv": "xilinx.com:module_ref:full_game_fsm:1.0",
+        "xci_name": "design_1_full_game_fsm_0_0",
+        "xci_path": "ip/design_1_full_game_fsm_0_0/design_1_full_game_fsm_0_0.xci",
+        "inst_hier_path": "full_game_fsm_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "full_game_fsm",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "start_loc": {
+            "direction": "I"
+          },
+          "start_rem": {
+            "direction": "I"
+          },
+          "buttons_loc": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "buttons_rem": {
+            "direction": "I",
+            "left": "3",
+            "right": "0"
+          },
+          "unicorns_loc_out": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "score_loc_out": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          },
+          "score_rem_out": {
+            "direction": "O",
+            "left": "3",
+            "right": "0"
+          }
+        }
+      }
+    },
+    "nets": {
+      "clk_1": {
+        "ports": [
+          "clk",
+          "score_port_0/sysclk",
+          "com_0/clk",
+          "full_game_fsm_0/clk"
+        ]
+      },
+      "rst_1": {
+        "ports": [
+          "rst",
+          "com_0/reset"
+        ]
+      },
+      "Net": {
+        "ports": [
+          "btn",
+          "com_0/keypress",
+          "full_game_fsm_0/buttons_loc"
+        ]
+      },
+      "Net2": {
+        "ports": [
+          "jd",
+          "score_port_0/jd"
+        ]
+      },
+      "Net3": {
+        "ports": [
+          "je",
+          "score_port_0/je"
+        ]
+      },
+      "jc0_1": {
+        "ports": [
+          "jc0",
+          "com_0/jd"
+        ]
+      },
+      "com_0_je": {
+        "ports": [
+          "com_0/je",
+          "jc1"
+        ]
+      },
+      "Net1": {
+        "ports": [
+          "start",
+          "com_0/start",
+          "full_game_fsm_0/start_loc"
+        ]
+      },
+      "com_0_r_start": {
+        "ports": [
+          "com_0/r_start",
+          "full_game_fsm_0/start_rem"
+        ]
+      },
+      "com_0_r_keypress": {
+        "ports": [
+          "com_0/r_keypress",
+          "full_game_fsm_0/buttons_rem"
+        ]
+      },
+      "full_game_fsm_0_unicorns_loc_out": {
+        "ports": [
+          "full_game_fsm_0/unicorns_loc_out",
+          "led"
+        ]
+      },
+      "full_game_fsm_0_score_loc_out": {
+        "ports": [
+          "full_game_fsm_0/score_loc_out",
+          "score_port_0/sw"
+        ]
+      }
+    }
+  }
+}

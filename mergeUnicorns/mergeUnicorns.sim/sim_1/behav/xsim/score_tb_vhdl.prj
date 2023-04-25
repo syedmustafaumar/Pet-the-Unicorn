@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../mergeUnicorns.srcs/sources_1/imports/new/full_game_fsm.vhd" \
+"../../../../mergeUnicorns.srcs/sim_1/imports/new/score_tb.vhd" \
+
+# Do not sort compile order
+nosort
